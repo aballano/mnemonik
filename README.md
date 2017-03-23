@@ -1,6 +1,6 @@
-# KotlinMemoization [![](https://jitpack.io/v/aballano/KotlinMemoization.svg)](https://jitpack.io/#aballano/KotlinMemoization) <a href="http://www.methodscount.com/?lib=com.github.aballano%3AKotlinMemoization%3A1.0.0"><img src="https://img.shields.io/badge/Methods and size-core: 69 | 13 KB-e91e63.svg"/></a>
+# MnemoniK [![](https://jitpack.io/v/aballano/MnemoniK.svg)](https://jitpack.io/#aballano/MnemoniK) <a href="http://www.methodscount.com/?lib=com.github.aballano%3AMnemoniK%3A1.0.0"><img src="https://img.shields.io/badge/Methods and size-core: 69 | 13 KB-e91e63.svg"/></a>
 
-Simple memoization extension function for Kotlin https://en.wikipedia.org/wiki/Memoization
+Simple [memoization](https://en.wikipedia.org/wiki/Memoization) extension function for Kotlin 
 
 
 ## Rationale
@@ -55,7 +55,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.aballano:KotlinMemoization:1.0.0'
+    compile 'com.github.aballano:MnemoniK:1.0.0'
 }
 ```
 or to your `pom.xml`
@@ -70,7 +70,7 @@ or to your `pom.xml`
 
 <dependency>
     <groupId>com.github.aballano</groupId>
-    <artifactId>KotlinMemoization</artifactId>
+    <artifactId>MnemoniK</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
