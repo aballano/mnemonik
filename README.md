@@ -41,7 +41,7 @@ val memoized = ::anExpensiveFun.aballano.memoize(50)
 ```
 By default the cache size is initialized with 256.
 
-######Note: Memoize works on functions with up to 5 parameters. For more parameters feel free to create a pull request.
+###### Note: Memoize works on functions with up to 5 parameters. For more parameters feel free to create a pull request.
 ##### You can see a full example in the Sample project.
 
 ## Distribution
