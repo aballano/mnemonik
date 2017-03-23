@@ -1,4 +1,5 @@
-# KotlinMemoization [![](https://jitpack.io/v/aballano/KotlinMemoization.svg)](https://jitpack.io/#aballano/KotlinMemoization)
+# KotlinMemoization [![](https://jitpack.io/v/aballano/KotlinMemoization.svg)](https://jitpack.io/#aballano/KotlinMemoization) <a href="http://www.methodscount.com/?lib=com.github.aballano%3AKotlinMemoization%3A1.0.0"><img src="https://img.shields.io/badge/Methods and size-core: 69 | 13 KB-e91e63.svg"/></a>
+
 Simple memoization extension function for Kotlin https://en.wikipedia.org/wiki/Memoization
 
 
