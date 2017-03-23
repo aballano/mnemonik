@@ -24,7 +24,7 @@ fun anExpensiveFun(someArg: Int, someOtherArg: Boolean): String = { ... }
 You can create a memoized version of it by just calling an extension function over it like this:
 
 ```kotlin
-val memoized = ::anExpensiveFun.aballano.memoize()
+val memoized = ::anExpensiveFun.memoize()
 ```
 
 Now `memoized` is the same function as `anExpensiveFun` but is wrapped in a Closure that contains an internal cache, meaning that the first call to:
@@ -38,7 +38,7 @@ Note that we're storing values in a **memory cache**, so try to have that in con
 If you want to specify how big the cache has to be you can do it like the following:
 
 ```kotlin
-val memoized = ::anExpensiveFun.aballano.memoize(50)
+val memoized = ::anExpensiveFun.memoize(50)
 ```
 By default the cache size is initialized with 256.
 
