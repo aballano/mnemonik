@@ -7,12 +7,16 @@ Simple [memoization](https://en.wikipedia.org/wiki/Memoization) extension functi
 > Suppose you have a performance-intensive function that you must call repeatedly. 
 A common solution is to build an internal cache (...) Memoization is a feature built into a programming language that enables automatic caching of recurring function-return values.
 
+Functional Thinking - Neal Ford
+
 Kotlin doesn't have yet any similar feature in it's tools. Although it might have it at some point I wanted to experiment a bit with this technique so that's why I created the lib. 
 
-> Note: Functions must be pure for the caching technique to work. A pure function is one that has no side effects: it references no other mutable class fields, doesn't set any values other than the return value, and relies only on the parameters for input.
+
+## Important
+**Functions must be pure** for the caching technique to work. A pure function is one that has no side effects: it references no other mutable class fields, doesn't set any values other than the return value, and relies only on the parameters for input.
 Obviously, you can reuse cached results successfully only if the function reliably returns the same values for a given set of parameters.
 
-Functional Thinking - Neal Ford
+Also, when passing or returning Objects, make sure to **implement both `equals` and `hashcode`** for the cache to work properly!
 
 ## Usage
 Having a function like
