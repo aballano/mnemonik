@@ -1,4 +1,7 @@
-# MnemoniK [![](https://jitpack.io/v/aballano/MnemoniK.svg)](https://jitpack.io/#aballano/MnemoniK) <a href="http://www.methodscount.com/?lib=com.github.aballano%3AMnemoniK%3A1.0.0"><img src="https://img.shields.io/badge/Methods and size-core: 69 | 13 KB-e91e63.svg"/></a>
+# MnemoniK 
+[![](https://jitpack.io/v/aballano/MnemoniK.svg)](https://jitpack.io/#aballano/MnemoniK) <a href="http://www.methodscount.com/?lib=com.github.aballano%3AMnemoniK%3A1.0.0"><img src="https://img.shields.io/badge/Methods and size-core: 69 | 13 KB-e91e63.svg"/></a>
+[![Kotlin version badge](https://img.shields.io/badge/kotlin-1.1.1-blue.svg)](http://kotlinlang.org/)
+  [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 Simple [memoization](https://en.wikipedia.org/wiki/Memoization) extension function for Kotlin 
 
