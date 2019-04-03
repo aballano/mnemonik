@@ -17,6 +17,8 @@ package aballano.kotlinmemoization
 
 import aballano.kotlinmemoization.tuples.Quadruple
 import aballano.kotlinmemoization.tuples.Quintuple
+import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.ConcurrentMap
 
 const val DEFAULT_CAPACITY = 1 shl 8
 
@@ -56,35 +58,35 @@ fun <A, B, C, D, E, R> ((A, B, C, D, E) -> R).memoize(initialCapacity: Int = DEF
 }
 
 fun <A, R> (suspend (A) -> R).memoizeSuspend(initialCapacity: Int = DEFAULT_CAPACITY): suspend (A) -> R {
-    val cache: MutableMap<A, R> = HashMap(initialCapacity)
+    val cache: ConcurrentMap<A, R> = ConcurrentHashMap(initialCapacity)
     return { a: A ->
         cache.getOrPut(a) { this(a) }
     }
 }
 
 fun <A, B, R> (suspend (A, B) -> R).memoizeSuspend(initialCapacity: Int = DEFAULT_CAPACITY): suspend (A, B) -> R {
-    val cache: MutableMap<Pair<A, B>, R> = HashMap(initialCapacity)
+    val cache: ConcurrentMap<Pair<A, B>, R> = ConcurrentHashMap(initialCapacity)
     return { a: A, b: B ->
         cache.getOrPut(a to b) { this(a, b) }
     }
 }
 
 fun <A, B, C, R> (suspend (A, B, C) -> R).memoizeSuspend(initialCapacity: Int = DEFAULT_CAPACITY): suspend (A, B, C) -> R {
-    val cache: MutableMap<Triple<A, B, C>, R> = HashMap(initialCapacity)
+    val cache: ConcurrentMap<Triple<A, B, C>, R> = ConcurrentHashMap(initialCapacity)
     return { a: A, b: B, c: C ->
         cache.getOrPut(Triple(a, b, c)) { this(a, b, c) }
     }
 }
 
 fun <A, B, C, D, R> (suspend (A, B, C, D) -> R).memoizeSuspend(initialCapacity: Int = DEFAULT_CAPACITY): suspend (A, B, C, D) -> R {
-    val cache: MutableMap<Quadruple<A, B, C, D>, R> = HashMap(initialCapacity)
+    val cache: ConcurrentMap<Quadruple<A, B, C, D>, R> = ConcurrentHashMap(initialCapacity)
     return { a: A, b: B, c: C, d: D ->
         cache.getOrPut(Quadruple(a, b, c, d)) { this(a, b, c, d) }
     }
 }
 
 fun <A, B, C, D, E, R> (suspend (A, B, C, D, E) -> R).memoizeSuspend(initialCapacity: Int = DEFAULT_CAPACITY): suspend (A, B, C, D, E) -> R {
-    val cache: MutableMap<Quintuple<A, B, C, D, E>, R> = HashMap(initialCapacity)
+    val cache: ConcurrentMap<Quintuple<A, B, C, D, E>, R> = ConcurrentHashMap(initialCapacity)
     return { a: A, b: B, c: C, d: D, e: E ->
         cache.getOrPut(Quintuple(a, b, c, d, e)) { this(a, b, c, d, e) }
     }
