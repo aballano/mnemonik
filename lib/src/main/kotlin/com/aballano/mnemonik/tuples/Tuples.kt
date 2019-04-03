@@ -1,4 +1,4 @@
-package aballano.kotlinmemoization.tuples
+package com.aballano.mnemonik.tuples
 
 import java.io.Serializable
 

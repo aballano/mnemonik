@@ -1,0 +1,5 @@
+rootProject.name = 'mnemonik'
+include 'lib'
+include 'sample'
+findProject(':lib')?.name = 'mnemonik'
+
