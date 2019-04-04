@@ -49,8 +49,15 @@ val memoized = ::anExpensiveFun.memoize(50)
 ```
 By default the cache size is initialized with 256.
 
-###### Note: Memoize works on functions with up to 5 parameters. For more parameters feel free to create a pull request.
-###### You can see a full example in the Sample project.
+Now you can also pass a specific `HashMap` instance (like ConcurrentHashMap) which also allows freeing the cache after you're done.
+
+```kotlin
+val map = ConcurrentHashMap<Int, Long>(50)
+val memoizedFib = ::fib.memoize(cache = map)
+(...)
+// clear the cache at the end
+map.clear
+```
 
 ## Distribution
 
@@ -62,7 +69,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.aballano:MnemoniK:2.0.0'
+    compile 'com.github.aballano:mnemonik:2.0.0'
 }
 ```
 or to your `pom.xml`
@@ -77,7 +84,7 @@ or to your `pom.xml`
 
 <dependency>
     <groupId>com.github.aballano</groupId>
-    <artifactId>MnemoniK</artifactId>
+    <artifactId>mnemonik</artifactId>
     <version>2.0.0</version>
 </dependency>
 ```
