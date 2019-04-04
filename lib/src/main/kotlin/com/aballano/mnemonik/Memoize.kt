@@ -3,7 +3,7 @@ package com.aballano.mnemonik
 import com.aballano.mnemonik.tuples.Quadruple
 import com.aballano.mnemonik.tuples.Quintuple
 
-const val DEFAULT_CAPACITY = 256
+private const val DEFAULT_CAPACITY = 256
 
 fun <A, R> ((A) -> R).memoize(
     initialCapacity: Int = DEFAULT_CAPACITY
