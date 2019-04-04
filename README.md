@@ -1,6 +1,6 @@
 # MnemoniK 
-[![](https://jitpack.io/v/aballano/MnemoniK.svg)](https://jitpack.io/#aballano/MnemoniK) <a href="http://www.methodscount.com/?lib=com.github.aballano%3AMnemoniK%3A1.0.0"><img src="https://img.shields.io/badge/Methods and size-core: 69 | 13 KB-e91e63.svg"/></a>
-[![Kotlin version badge](https://img.shields.io/badge/kotlin-1.1.1-blue.svg)](http://kotlinlang.org/)
+[![](https://jitpack.io/v/aballano/MnemoniK.svg)](https://jitpack.io/#aballano/MnemoniK)
+[![Kotlin version badge](https://img.shields.io/badge/kotlin-1.3.21-blue.svg)](http://kotlinlang.org/)
   [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 Simple [memoization](https://en.wikipedia.org/wiki/Memoization) extension function for Kotlin 
@@ -50,7 +50,7 @@ val memoized = ::anExpensiveFun.memoize(50)
 By default the cache size is initialized with 256.
 
 ###### Note: Memoize works on functions with up to 5 parameters. For more parameters feel free to create a pull request.
-##### You can see a full example in the Sample project.
+###### You can see a full example in the Sample project.
 
 ## Distribution
 
@@ -62,7 +62,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.aballano:MnemoniK:1.0.0'
+    compile 'com.github.aballano:MnemoniK:2.0.0'
 }
 ```
 or to your `pom.xml`
@@ -78,7 +78,7 @@ or to your `pom.xml`
 <dependency>
     <groupId>com.github.aballano</groupId>
     <artifactId>MnemoniK</artifactId>
-    <version>1.0.0</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 
