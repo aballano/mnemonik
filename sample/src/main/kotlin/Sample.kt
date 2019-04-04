@@ -1,6 +1,7 @@
 package com.aballano.mnemonik.sample
 
 import com.aballano.mnemonik.memoize
+import kotlin.system.measureTimeMillis
 
 const val MAX_NUMBER = 40
 
@@ -9,19 +10,21 @@ fun main() {
 
     println("Test for range 1-$MAX_NUMBER")
     print("1st iteration: ")
-    var start = System.currentTimeMillis()
-    (1 .. MAX_NUMBER).forEach {
-        memoizedFib(it)
+    var totalMs = measureTimeMillis {
+        (1..MAX_NUMBER).forEach {
+            memoizedFib(it)
+        }
     }
-    print("${System.currentTimeMillis() - start} ms")
+    print("$totalMs ms")
     println()
     println()
     print("2nd iteration: ")
-    start = System.currentTimeMillis()
-    (1 .. MAX_NUMBER).forEach {
-        memoizedFib(it)
+    totalMs = measureTimeMillis {
+        (1..MAX_NUMBER).forEach {
+            memoizedFib(it)
+        }
     }
-    print("${System.currentTimeMillis() - start} ms")
+    print("$totalMs ms")
 }
 
 // Considerably inefficient implementation for test purposes
