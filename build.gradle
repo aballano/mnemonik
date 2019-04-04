@@ -10,15 +10,26 @@ buildscript {
     }
 }
 
-apply plugin: "kotlin"
-apply plugin: 'maven'
+group = 'com.aballano'
 
-group = 'aballano.kotlinmemoization'
+subprojects { project ->
+    apply plugin: "kotlin"
+    
+    repositories {
+        mavenCentral()
+    }
+    
+    dependencies {
+        implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-repositories {
-    mavenCentral()
-}
+        testImplementation 'io.kotlintest:kotlintest-runner-junit5:3.3.0'
+    }
 
-dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    test {
+        useJUnitPlatform()
+        testLogging {
+            exceptionFormat 'full'
+            events "passed", "skipped", "failed", "standardOut", "standardError"
+        }
+    }
 }

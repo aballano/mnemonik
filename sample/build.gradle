@@ -1,23 +1,3 @@
-plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.3.21'
-}
-
-group 'com.aballano.mnemonik.sample'
-version '1.0'
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    
     compile project(":mnemonik")
-}
-
-compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
-}
-compileTestKotlin {
-    kotlinOptions.jvmTarget = "1.8"
 }

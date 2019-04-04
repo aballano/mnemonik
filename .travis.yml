@@ -1,0 +1,9 @@
+language: kotlin
+sudo: required
+
+jdk:
+  - oraclejdk8
+
+script:
+  - ./gradlew test
+  - ./gradlew clean build
