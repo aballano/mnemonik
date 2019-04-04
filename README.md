@@ -69,7 +69,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.aballano:mnemonik:2.0.0'
+    compile 'com.github.aballano:mnemonik:X.X.X'
 }
 ```
 or to your `pom.xml`
@@ -85,7 +85,7 @@ or to your `pom.xml`
 <dependency>
     <groupId>com.github.aballano</groupId>
     <artifactId>mnemonik</artifactId>
-    <version>2.0.0</version>
+    <version>X.X.X</version>
 </dependency>
 ```
 
