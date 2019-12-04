@@ -63,29 +63,18 @@ map.clear
 
 Add as a dependency to your `build.gradle`
 ```groovy
-repositories {
-    ...
-    maven { url 'https://jitpack.io' }
-}
-
 dependencies {
-    compile 'com.github.aballano:mnemonik:X.X.X'
+    implementation 'mnemonik:mnemonik:2.0.2'
 }
 ```
 or to your `pom.xml`
 
 ```xml
-<repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
-</repositories>
-
 <dependency>
-    <groupId>com.github.aballano</groupId>
-    <artifactId>mnemonik</artifactId>
-    <version>X.X.X</version>
+  <groupId>mnemonik</groupId>
+  <artifactId>mnemonik</artifactId>
+  <version>2.0.2</version>
+  <type>pom</type>
 </dependency>
 ```
 
