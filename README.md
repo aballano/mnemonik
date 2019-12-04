@@ -1,6 +1,6 @@
 # MnemoniK 
 [![](https://jitpack.io/v/aballano/mnemonik.svg)](https://jitpack.io/#aballano/mnemonik)
-[![Kotlin version badge](https://img.shields.io/badge/kotlin-1.3.21-blue.svg)](http://kotlinlang.org/)
+[![Kotlin version badge](https://img.shields.io/badge/kotlin-1.3.61-blue.svg)](http://kotlinlang.org/)
   [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 Simple [memoization](https://en.wikipedia.org/wiki/Memoization) extension function for Kotlin 

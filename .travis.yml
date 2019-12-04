@@ -2,7 +2,7 @@ language: kotlin
 sudo: required
 
 jdk:
-  - oraclejdk8
+  - openjdk8
 
 script:
   - ./gradlew test
