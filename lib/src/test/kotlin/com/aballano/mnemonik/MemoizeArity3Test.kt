@@ -9,42 +9,34 @@ class MemoizeArity3Test : StringSpec() {
 
     private val counter = AtomicInteger(0)
 
-    private fun givenAllClear(block: () -> Unit) =
-        counter.set(0).also { block() }
-
     private fun concatSpaced(first: String, second: String, third: String): String =
         "$first $second $third".also { counter.incrementAndGet() }
 
+    private suspend fun concatSpacedS(first: String, second: String, third: String): String =
+        concatSpaced(first, second, third)
+
     private fun givenMemoizedFunction() = ::concatSpaced.memoize()
+    private suspend fun givenMemoizedFunctionS() = ::concatSpacedS.memoizeSuspend()
 
     init {
-        "normal function should call every time with same params" {
-            assertAll { a: String, b: String, c: String ->
-                givenAllClear {
-                    concatSpaced(a, b, c) shouldBe "$a $b $c"
-                    concatSpaced(a, b, c) shouldBe "$a $b $c"
-                    concatSpaced(a, b, c) shouldBe "$a $b $c"
-                    counter.get() shouldBe 3
-                }
-            }
-        }
-
         "memoized function should call only once with same params" {
-            assertAll { a: String, b: String, c: String ->
-                givenAllClear {
+            assertAll { a: String, b: String, c: String, d: String ->
+                if (notEqual(a, b, c, d)) counter.givenAllClear {
                     val concatSpacedMemoized = givenMemoizedFunction()
                     concatSpacedMemoized(a, b, c) shouldBe "$a $b $c"
+                    concatSpacedMemoized(b, c, a) shouldBe "$b $c $a"
+                    concatSpacedMemoized(a, d, d) shouldBe "$a $d $d"
+                    concatSpacedMemoized(a, c, a) shouldBe "$a $c $a"
                     concatSpacedMemoized(a, b, c) shouldBe "$a $b $c"
-                    concatSpacedMemoized(a, b, c) shouldBe "$a $b $c"
-                    counter.get() shouldBe 1
+                    counter.get() shouldBe 4
                 }
             }
         }
 
-        "memoized function should call every time with different params" {
+        "memoized suspend function should call only once with same params" {
             assertAll { a: String, b: String, c: String, d: String ->
-                if (notEqual(a, b, c, d)) givenAllClear {
-                    val concatSpacedMemoized = givenMemoizedFunction()
+                if (notEqual(a, b, c, d)) counter.givenAllClearBlocking {
+                    val concatSpacedMemoized = givenMemoizedFunctionS()
                     concatSpacedMemoized(a, b, c) shouldBe "$a $b $c"
                     concatSpacedMemoized(b, c, a) shouldBe "$b $c $a"
                     concatSpacedMemoized(a, d, d) shouldBe "$a $d $d"
