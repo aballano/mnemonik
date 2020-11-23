@@ -23,7 +23,7 @@ class MemoizeArity1Test : StringSpec() {
             assertAll { a: String, b: String, c: String ->
                 if (notEqual(a, b, c)) counter.givenAllClear {
                     val concatSpacedMemoized = givenMemoizedFunction()
-                    concatSpacedMemoized(a) shouldBe "$a hhh"
+                    concatSpacedMemoized(a) shouldBe "$a "
                     concatSpacedMemoized(b) shouldBe "$b "
                     concatSpacedMemoized(c) shouldBe "$c "
                     concatSpacedMemoized(a) shouldBe "$a "

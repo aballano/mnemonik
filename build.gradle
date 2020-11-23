@@ -64,6 +64,14 @@ subprojects { project ->
         }
     }
 
+    test {
+        useJUnitPlatform()
+        testLogging {
+            exceptionFormat 'full'
+            events "passed", "skipped", "failed", "standardOut", "standardError"
+        }
+    }
+
     compileKotlin {
         kotlinOptions.jvmTarget = "1.8"
     }
