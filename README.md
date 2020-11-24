@@ -1,5 +1,6 @@
 # MnemoniK 
 [![](https://jitpack.io/v/aballano/mnemonik.svg)](https://jitpack.io/#aballano/mnemonik)
+ [ ![Download](https://api.bintray.com/packages/aballano/maven/mnemonik/images/download.svg) ](https://bintray.com/aballano/maven/mnemonik/_latestVersion)
 [![Kotlin version badge](https://img.shields.io/badge/kotlin-1.4.10-blue.svg)](http://kotlinlang.org/)
   [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
@@ -62,14 +63,18 @@ map.clear
 ## Distribution
 
 Add as a dependency to your `build.gradle`
+
+### Custom bintray
 ```groovy
 maven { url "https://dl.bintray.com/aballano/maven/" }
 
 //...
 
 dependencies {
-    implementation 'mnemonik:mnemonik:2.0.2'
+    implementation 'mnemonik:mnemonik:2.1.0'
 }
+
+
 ```
 or to your `pom.xml`
 
@@ -77,9 +82,19 @@ or to your `pom.xml`
 <dependency>
   <groupId>mnemonik</groupId>
   <artifactId>mnemonik</artifactId>
-  <version>2.0.2</version>
+  <version>2.1.0</version>
   <type>pom</type>
 </dependency>
+```
+
+
+### Jitpack
+```groovy
+maven { url 'https://jitpack.io' }
+
+dependencies {
+    implementation 'com.github.aballano:mnemonik:2.1.0'
+}
 ```
 
 ## License
