@@ -26,13 +26,13 @@ same values for a given set of parameters.
 Also, when passing or returning Objects, make sure to implement both equals and hashcode for the cache to work properly.
 
 ## Usage
-Having a function like
+Having a function like:
 
 ```kotlin
-fun anExpensiveFun(someArg: Int, someOtherArg: Boolean): String = { ... }
+fun anExpensiveFun(someArg: Int, someOtherArg: Boolean): String = { /*...*/ }
 ```
 
-You can create a memoized version of it by just calling an extension function over it like this:
+You can create a memoized version of it by just calling an extension function over its reference like this:
 
 ```kotlin
 val memoized = ::anExpensiveFun.memoize()
@@ -53,59 +53,34 @@ val memoized = ::anExpensiveFun.memoize(50)
 ```
 By default the cache size is initialized with 256.
 
-Now you can also pass any `MutableMap` instance (like `HashMap`) which allows custom control of it.
+Note: The same approach also works for **suspend functions**.
+
+By default `HashMap` and `ConcurrentHashMap` are used as caches but you can also pass any `MutableMap` and `ConcurrentMap` instances which allows custom control of the cache.
 
 ```kotlin
-val map = ConcurrentHashMap<Int, Long>(50)
-val memoizedFib = ::fib.memoize(cache = map)
+val map = ConcurrentHashMap<Int, Boolean>(50)
+val memoized = ::anExpensiveFun.memoize(cache = map)
 
 // clear the cache at the end
 map.clear
 ```
 
+## Limitations
+
+Currently this library only supports up to 5 function parameters.
+
+Note that the memoization **might not be thread safe** for the first call, subsequent calls are safe as they will simply retrieve from cache.
+
 ## Distribution
 
-Add as a dependency to your `build.gradle`
-
-### Custom bintray
-```groovy
-maven { url "https://dl.bintray.com/aballano/maven/" }
-
-//...
-
-dependencies {
-    implementation 'mnemonik:mnemonik:2.1.0'
-}
-
-
-```
-or to your `pom.xml`
-
-```xml
-<dependency>
-  <groupId>mnemonik</groupId>
-  <artifactId>mnemonik</artifactId>
-  <version>2.1.0</version>
-  <type>pom</type>
-</dependency>
-```
-
-
-### Jitpack
-```groovy
-maven { url 'https://jitpack.io' }
-
-dependencies {
-    implementation 'com.github.aballano:mnemonik:2.1.0'
-}
-```
+[Add as a dependency to your `build.gradle` with Jitpack](https://jitpack.io/private#aballano/mnemonik/2.1.1)
 
 ## License
 
 ````
 MIT License
 
-Copyright (c) 2020 aballano
+Copyright (c) 2022 aballano
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
