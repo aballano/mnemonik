@@ -6,5 +6,4 @@ jdk:
 
 script:
   - ./gradlew test
-  - ./gradlew benchmark
   - ./gradlew clean build

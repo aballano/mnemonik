@@ -7,6 +7,18 @@ import java.util.concurrent.ConcurrentMap
 
 private const val DEFAULT_CAPACITY = 256
 
+/**
+ * Functions must be pure for the caching technique to work.
+ *
+ * A pure function is one that has no side effects: it references no other mutable class fields,
+ * doesn't set any values other than the return value, and relies only on the parameters for input.
+ * In other words, you can reuse cached results successfully only if the function reliably returns the
+ * same values for a given set of parameters.
+ *
+ * Also, when passing or returning Objects, make sure to implement both equals and hashcode for the cache to work properly.
+ */
+
+
 fun <A, R> ((A) -> R).memoize(
     initialCapacity: Int = DEFAULT_CAPACITY
 ): (A) -> R = memoize(HashMap(initialCapacity))
