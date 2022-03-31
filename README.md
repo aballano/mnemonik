@@ -53,7 +53,6 @@ val memoized = ::anExpensiveFun.memoize(50)
 ```
 By default the cache size is initialized with 256.
 
-Note: The same approach also works for **suspend functions**.
 
 By default `HashMap` and `ConcurrentHashMap` are used as caches but you can also pass any `MutableMap` and `ConcurrentMap` instances which allows custom control of the cache.
 
@@ -64,6 +63,8 @@ val memoized = ::anExpensiveFun.memoize(cache = map)
 // clear the cache at the end
 map.clear
 ```
+
+Note: The same approach also works for **suspend functions**.
 
 ## Limitations
 
