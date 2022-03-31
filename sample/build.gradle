@@ -1,3 +1,7 @@
+apply plugin: "application"
+
+mainClassName = 'com.aballano.mnemonik.sample.SampleKt'
+
 dependencies {
-    compile project(":mnemonik")
+    implementation project(":mnemonik")
 }

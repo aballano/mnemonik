@@ -5,7 +5,7 @@ import kotlin.system.measureTimeMillis
 
 const val MAX_CACHE_SIZE = 40
 
-internal fun main() {
+fun main() {
     // Considerably inefficient implementation for test purposes
     fun fib(k: Int): Long = when (k) {
         0 -> 1
@@ -34,6 +34,7 @@ internal fun main() {
         }
     }
     print("$totalMs ms")
+    check(totalMs == 0L) { "2nd iteration time should be 0" }
 
     // Free cache
     map.clear()
